@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../layui/css/layui.css">
+
+		<style>
+			#admin-add-form{
+				width: 97%;
+				height: 400px;
+				border: 1px solid #e6e6e6;
+				margin-left: 15px;
+			}
+			#admin-add-title{
+				height: 50px;
+				line-height: 50px;
+				text-indent: 10px;
+			}
+			.layui-form{
+				margin-left: 90px;
+				margin-top: 20px;
+			}
+			.form-but{
+				margin: 20px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h4 id="admin-add-title">创建管理员</h4>
+		
+		<div id="admin-add-form">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">管理员角色</label>
+					<div class="layui-input-inline">
+						<select name="interest" lay-filter="aihao">
+							<option value=""></option>
+							<option value="0">写作</option>
+							<option value="1" selected="">阅读</option>
+							<option value="2">游戏</option>
+							<option value="3">音乐</option>
+							<option value="4">旅行</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">是否锁定</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">邮箱</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">登陆密码</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">确认密码</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">姓名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				
+				<div class="layui-form-item">
+					<label class="layui-form-label">电话</label>
+					<div class="layui-input-inline">
+						<input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="form-but">
+		<button type="button" class="layui-btn layui-btn-normal">确认保存</button>
+		</div>
+
+		<script src="../layui/layui.js"></script>
+		<script>
+			layui.use(['form', 'layedit', 'laydate'], function() {
+				var form = layui.form,
+					layer = layui.layer,
+					layedit = layui.layedit,
+					laydate = layui.laydate;
+
+				//日期
+				laydate.render({
+					elem: '#date'
+				});
+				laydate.render({
+					elem: '#date1'
+				});
+
+				//创建一个编辑器
+				var editIndex = layedit.build('LAY_demo_editor');
+
+				//自定义验证规则
+				form.verify({
+					title: function(value) {
+						if (value.length < 5) {
+							return '标题至少得5个字符啊';
+						}
+					},
+					pass: [
+						/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
+					],
+					content: function(value) {
+						layedit.sync(editIndex);
+					}
+				});
+
+				//监听指定开关
+				form.on('switch(switchTest)', function(data) {
+					layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+						offset: '6px'
+					});
+					layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+				});
+
+				//监听提交
+				form.on('submit(demo1)', function(data) {
+					layer.alert(JSON.stringify(data.field), {
+						title: '最终的提交信息'
+					})
+					return false;
+				});
+
+				//表单取值
+				layui.$('#LAY-component-form-getval').on('click', function() {
+					var data = form.val('example');
+					alert(JSON.stringify(data));
+				});
+
+			});
+		</script>
+	</body>
+</html>

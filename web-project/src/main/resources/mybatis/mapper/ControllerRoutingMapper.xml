@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.morhaimi.mapper.ControllerRoutingMapper">
+	<resultMap id="controllerRoutingResultMap" type="com.morhaimi.pojo.ControllerRouting">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="coner_name" jdbcType="VARCHAR" property="conerName" />
+		<result column="parent_node" jdbcType="INTEGER" property="parentNode" />
+		<result column="rg_coner_name" jdbcType="VARCHAR" property="rgConerName" />
+		<result column="rg_num" jdbcType="INTEGER" property="rgNum" />
+	</resultMap>
+	<sql id="controllerRouting_Column_List">
+		id, coner_name, parent_node, rg_coner_name, rg_num
+	</sql>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 自动生成的方法 -->
+	<!-- <select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_controller_routing
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from tbl_controller_routing
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="xxl.pojo.ControllerRouting">
+		insert into tbl_controller_routing (id, coner_name, parent_node,
+		rg_coner_name, rg_num)
+		values (#{id,jdbcType=INTEGER}, #{conerName,jdbcType=VARCHAR},
+		#{parentNode,jdbcType=INTEGER},
+		#{rgConerName,jdbcType=VARCHAR}, #{rgNum,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="xxl.pojo.ControllerRouting">
+		insert into tbl_controller_routing
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="conerName != null">
+				coner_name,
+			</if>
+			<if test="parentNode != null">
+				parent_node,
+			</if>
+			<if test="rgConerName != null">
+				rg_coner_name,
+			</if>
+			<if test="rgNum != null">
+				rg_num,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="conerName != null">
+				#{conerName,jdbcType=VARCHAR},
+			</if>
+			<if test="parentNode != null">
+				#{parentNode,jdbcType=INTEGER},
+			</if>
+			<if test="rgConerName != null">
+				#{rgConerName,jdbcType=VARCHAR},
+			</if>
+			<if test="rgNum != null">
+				#{rgNum,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="xxl.pojo.ControllerRouting">
+		update tbl_controller_routing
+		<set>
+			<if test="conerName != null">
+				coner_name = #{conerName,jdbcType=VARCHAR},
+			</if>
+			<if test="parentNode != null">
+				parent_node = #{parentNode,jdbcType=INTEGER},
+			</if>
+			<if test="rgConerName != null">
+				rg_coner_name = #{rgConerName,jdbcType=VARCHAR},
+			</if>
+			<if test="rgNum != null">
+				rg_num = #{rgNum,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="xxl.pojo.ControllerRouting">
+		update tbl_controller_routing
+		set coner_name = #{conerName,jdbcType=VARCHAR},
+		parent_node = #{parentNode,jdbcType=INTEGER},
+		rg_coner_name = #{rgConerName,jdbcType=VARCHAR},
+		rg_num = #{rgNum,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update> -->
+</mapper>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		
+		<style>
+			.layui-iframe{
+				width: 99%;
+				height: 600px;
+				margin: 8px;
+				background: white;
+			}
+			
+			.layadmin-tabsbody-item{
+				/* border: 1px solid red; */
+				
+			}
+			
+			body{
+				/* background: #f2f2f2; */
+			}
+			
+			.layui-body{
+				height: 100%;
+				background: #f2f2f2;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">皓晨题库管理</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"></li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item"><a href="javascript:;"> <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+						</a></li>
+					<li class="layui-nav-item"><a href="javascript:window.top.location.href=''">退了</a></li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black layui-left">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">主页</a>
+							<dl class="layui-nav-child">
+							</dl>
+						</li>
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="" href="javascript:;">控制面板</a>
+							<dl class="layui-nav-child">
+								<dd data-name="form">
+									<a href="javascript:;">系统用户</a>
+									<dl class="layui-nav-child">
+										<dd><a href="admin/admin_list.html" target="mainFrame">管理员</a></dd>
+										<dd><a lay-href="component/form/group.html">表单组合</a></dd>
+									</dl>
+								</dd>
+								<dd data-name="form">
+									<a href="javascript:;">后台界面</a>
+									<dl class="layui-nav-child">
+										<dd><a lay-href="component/form/element.html">导航节点</a></dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="layui-body" id="LAY_app_body">
+				<div class="layadmin-tabsbody-item layui-show">
+					<iframe src="welcome.html" frameborder="0" class="layui-iframe" name="mainFrame"></iframe>
+				</div>
+			</div>
+		</div>
+		
+		<script src="layui/layui.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	<!-- <frameset rows="60,*" cols="*" frameborder="no" border="0"
+		framespacing="0">
+		<frame src="index_top.html" name="" scrolling="0" noresize="" id="" />
+		<frameset cols="200,*" frameborder="no" border="0" framespacing="0">
+			<frame src="index_left.html" name="" scrolling="0" noresize="" id="" />
+			<frame src="welcome.html" name="mainFrame" id="mainFrame"/>
+		</frameset>
+	</frameset> -->
+	
+	<body>
+		<div class="layui-side layui-bg-black">
+			<div class="layui-header">
+				<div class="layui-logo">皓晨题库管理</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"></li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item"><a href="javascript:;"> <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+						</a></li>
+					<li class="layui-nav-item"><a href="javascript:window.top.location.href=''">退了</a></li>
+				</ul>
+			</div>
+			
+			<div class="layui-side-scroll">
+				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+				<ul class="layui-nav layui-nav-tree" lay-filter="test">
+					<li class="layui-nav-item layui-nav-itemed">
+						<a class="" href="javascript:;">主页</a>
+						<dl class="layui-nav-child">
+						</dl>
+					</li>
+					<li class="layui-nav-item layui-nav-itemed">
+						<a class="" href="javascript:;">控制面板</a>
+						<dl class="layui-nav-child">
+							<dd data-name="form">
+								<a href="javascript:;">系统用户</a>
+								<dl class="layui-nav-child">
+									<dd><a href="admin/admin_list.html" target="mainFrame">管理员</a></dd>
+									<dd><a lay-href="component/form/group.html">表单组合</a></dd>
+								</dl>
+							</dd>
+							<dd data-name="form">
+								<a href="javascript:;">后台界面</a>
+								<dl class="layui-nav-child">
+									<dd><a lay-href="component/form/element.html">导航节点</a></dd>
+								</dl>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="layui/layui.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+		
+			});
+		</script>
+	</body>
+</html>

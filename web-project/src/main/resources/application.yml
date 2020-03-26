@@ -1,0 +1,18 @@
+
+server:
+  port: 80
+
+
+#spring核心配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/my_project?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: 2241662435
+    
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  type-aliases-package: com.morhaimi.pojo
+

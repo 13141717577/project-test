@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<style>
+			.login-form{
+				width:500px;
+				height: 350px;
+				margin: 100px auto;
+				box-shadow:0px 0px  10px 5px #aaa;
+			}
+			
+			.form-title{
+				text-align: center;
+				/* border: 1px solid red; */
+				height: 80px;
+				line-height: 80px;
+			}
+			
+			.layui-form-item{
+				margin-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="login-form">
+			<h2 class="form-title">管理员登陆</h2>
+			<form class="layui-form layui-form-pane" action="" lay-filter="login_table">
+				<div class="layui-form-item" style="margin-top: 10px;">
+					<label class="layui-form-label">用户名</label>
+					<div class="layui-input-inline">
+						<input type="text" name="name" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input"
+						 style="width: 300px;">
+					</div>
+				</div>
+				<div class="layui-form-item" style="margin-top: 40px;">
+					<label class="layui-form-label">密码</label>
+					<div class="layui-input-inline">
+						<input type="text" name="pwd" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input"
+						 style="width: 300px;">
+					</div>
+				</div>
+
+				<div class="layui-form-item" style="margin-top: 60px;">
+					<div class="layui-input-block">
+						<button type="submit" class="layui-btn" lay-submit="" lay-filter="login_sub" style="width: 200px;">立即提交</button>
+						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<script src="js/jquery.3.4.1.min.js"></script>
+			<script src="layui/layui.js"></script>
+			<script>
+				layui.use('form', function() {
+					var form = layui.form;
+
+					form.on('submit(login_sub)', function(data) {
+						var admin = form.val("login_table");
+						
+						$.post("admin/login", admin, function(data) {
+							if (data.code == 200) {
+								console.log("登陆成功");
+							} else {
+								console.log("登陆失败");
+							}
+						}, "json")
+						return false;
+					})
+				});
+			</script>
+	</body>
+</html>
